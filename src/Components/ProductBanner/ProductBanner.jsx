@@ -3,7 +3,7 @@ import heroImg from "/images/hero-banner.png"; // replace with your image path
 
 export default function ProductBanner() {
   return (
-    <section className="bg-[#FEFFF4] px-6 py-16 flex flex-col items-center gap-20">
+    <section className="bg-[#FEFFF4] px-6 py-16 flex flex-col items-center gap-20 mt-11">
       
       {/* HERO IMAGE SECTION */}
       <div className="relative  max-w-10xl rounded-2xl overflow-hidden">
@@ -35,12 +35,12 @@ export default function ProductBanner() {
         </h2>
 
         {/* Filter Tags */}
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-6">
           {["New Arrival", "Cleansing", "Acne Fighter", "Anti Ageing"].map(
             (tag, i) => (
               <button
                 key={i}
-                className={`px-5 py-2 rounded-full text-sm border ${
+                className={`px-6 py-2 rounded-full text-[18px] border ${
                   i === 0
                     ? "bg-[#1A1A1A] text-white"
                     : "bg-white text-[#1A1A1A] border-[#E0E0E0]"

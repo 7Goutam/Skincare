@@ -4,6 +4,9 @@ import Hero from './Components/Hero/Hero'
 import WhyOurProducts from './Components/WhyOurProducts/WhyOurProducts'
 import BestSellingProducts from './Components/BestSellingProducts/BestSellingProducts'
 import ProductBanner from './Components/ProductBanner/ProductBanner'
+import SelectedProduct from './Components/SelectedProduct/SelectedProduct'
+import FAQSection from './Components/FAQSection/FAQSection'
+import Footer from './Components/Footer/Footer'
 
 const App = () => {
   return (
@@ -14,6 +17,9 @@ const App = () => {
     <WhyOurProducts/>
     <BestSellingProducts/>
     <ProductBanner/>
+    <SelectedProduct/>
+    <FAQSection/>
+    <Footer/>
     </div>
     </>
   )

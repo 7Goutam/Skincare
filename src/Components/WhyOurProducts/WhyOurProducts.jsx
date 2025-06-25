@@ -6,7 +6,7 @@ import { GoDotFill } from "react-icons/go";
 
 export default function WhyOurProducts() {
   return (
-    <section className="bg-#FEFFF4 py-16 px-6 md:px-20">
+    <section className="bg-#FEFFF4 py-16 px-6 md:px-20 ">
         <p className=" font-inter text-[53px] text-[#2D3B36] ">
         Experience the ultimate in skincare with our expertly formulated products,
 crafted to nourish, protect, and rejuvenate your skin. Combining the finest
