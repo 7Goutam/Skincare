@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-[#1A2A24] text-white relative px-6 py-24 md:py-32 min-h-[700px] overflow-hidden">
       {/* Background Text */}
      {/* Background Text - Desktop */}
-<div className="absolute inset-0 hidden sm:flex justify-center items-end z-0 pointer-events-none select-none">
+<div className="absolute inset-0 hidden sm:flex justify-center -mb-25 items-end z-0 pointer-events-none select-none">
   <h1 className="text-[160px] md:text-[250px] lg:text-[378px] font-extrabold font-inter leading-[1] uppercase text-[#2d3b36] opacity-20 whitespace-nowrap">
     SKINCARE
   </h1>
