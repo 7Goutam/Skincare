@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import product1 from "/images/product1.jpg";
 import product2 from "/images/product2.jpg";
@@ -23,6 +23,16 @@ const products = [
 ];
 
 export default function SelectedProduct() {
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+  };
+
   return (
     <section className="bg-[#FEFFF4] px-4 md:px-10 py-16">
       <div className="max-w-[1800px] mx-auto">
@@ -38,18 +48,18 @@ export default function SelectedProduct() {
             Your Natural Radiance
           </h2>
 
-          {/* Arrows only visible on large screens */}
+          {/* Arrows on Desktop */}
           <div className="hidden lg:flex gap-6">
-            <button className="w-25 h-25 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow">
+            <button className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow">
               &#8592;
             </button>
-            <button className="w-25 h-25 md:w-16 md:h-16 bg-[#2D3B36] text-white rounded-full flex items-center justify-center shadow">
+            <button className="w-16 h-16 bg-[#2D3B36] text-white rounded-full flex items-center justify-center shadow">
               &#8594;
             </button>
           </div>
         </div>
 
-        {/* Responsive Layout */}
+        {/* Grid Layout for Desktop */}
         <div className="lg:grid lg:grid-cols-3 gap-10 hidden">
           {products.map((product, idx) => (
             <div
@@ -68,7 +78,7 @@ export default function SelectedProduct() {
                       {product.title}
                     </h3>
                     <p className="text-[14px] sm:text-[16px] text-[#4F4F4F]">
-                     {product.price}
+                      {product.price}
                     </p>
                   </div>
                   <button
@@ -89,28 +99,33 @@ export default function SelectedProduct() {
           ))}
         </div>
 
-{/* Mobile scrollable product list */}
-<div className="lg:hidden mt-8 overflow-x-auto">
-  <div className="flex gap-6 px-2 w-max">
-    {products.map((product, idx) => (
-      <div
-        key={idx}
-        className="min-w-[280px] max-w-[320px] h-[600px] bg-white rounded-[20px] shadow-md overflow-hidden"
-      >
-        <div className="relative w-full h-full">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute bottom-4 left-4 right-4 bg-[#F9FBEF] rounded-[12px] px-4 py-4 flex items-center justify-between shadow-md">
-            <div>
-              <h3 className="text-[18px] font-medium text-[#2D3B36]">
-                {product.title}
-              </h3>
-              <p className="text-[14px] text-[#4F4F4F]">{product.price}</p>
-            </div>
-            <button
+        {/* Scrollable Cards for Mobile */}
+        <div className="lg:hidden mt-8 relative">
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide px-2"
+          >
+            {products.map((product, idx) => (
+              <div
+                key={idx}
+                className="min-w-[280px] max-w-[320px] h-[600px] bg-white rounded-[20px] shadow-md overflow-hidden flex-shrink-0"
+              >
+                <div className="relative w-full h-full">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-4 left-4 right-4 bg-[#F9FBEF] rounded-[12px] px-4 py-4 flex items-center justify-between shadow-md">
+                    <div>
+                      <h3 className="text-[18px] font-medium text-[#2D3B36]">
+                        {product.title}
+                      </h3>
+                      <p className="text-[14px] text-[#4F4F4F]">
+                        {product.price}
+                      </p>
+                    </div>
+                 <button
               className={`${
                 idx === 1 ? "bg-[#1A1A1A]" : "bg-[#2D3B361A]"
               } opacity-90 w-[50px] h-[50px] flex items-center justify-center rounded-lg`}
@@ -122,23 +137,32 @@ export default function SelectedProduct() {
                 }`}
               />
             </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Arrows Below */}
+          <div className="flex justify-center gap-8 mt-6 md:hidden">
+            <button
+              onClick={scrollLeft}
+              className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow"
+            >
+              &#8592;
+            </button>
+            <button
+              onClick={scrollRight}
+              className="w-20 h-20 bg-[#2D3B36] text-white rounded-full flex items-center justify-center shadow"
+            >
+              &#8594;
+            </button>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-
-  {/* Arrows below on mobile */}
-  <div className="flex justify-center gap-8 mt-6">
-    <button className="w-25 h-25 bg-white rounded-full flex items-center justify-center shadow">
-      &#8592;
-    </button>
-    <button className="w-25 h-25 bg-[#2D3B36] text-white rounded-full flex items-center justify-center shadow">
-      &#8594;
-    </button>
-  </div>
-</div>
       </div>
     </section>
   );
 }
+
+
+
