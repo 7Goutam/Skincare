@@ -10,9 +10,9 @@ export default function WhyOurProducts() {
       <p className="text-[20px] md:text-[31px] lg:text-[53px] font-inter text-[#2D3B36] leading-tight max-w-8xl mx-auto mb-32 text-center">
         Experience the ultimate in skincare with our expertly formulated products,
         crafted to nourish, protect, and rejuvenate your skin. Combining the finest
-        natural ingredients with <span className="text-[#2D3B36]/30">advanced science, our collection ensures every
+        natural ingredients with advanced science, our collection ensures every
         skin type can achieve a radiant, healthy glow. Embrace your beauty with
-        confidence every day.</span>
+        confidence every day.
       </p>
 
       {/* Main Content */}
